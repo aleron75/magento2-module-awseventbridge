@@ -21,6 +21,5 @@
         "psr-4": {
             "Bitbull\\AWSEventBridge\\": ""
         }
-    },
-    "version": "1.0.0"
+    }
 }
