@@ -31,20 +31,9 @@ class Logger implements LoggerInterface
     /**
      * @inheritdoc
      */
-    public function log($message, $level = null, $context = [])
-    {
-        if ($level === null) {
-            $level = Monolog::INFO;
-        }
-        $this->logger->log($level, $message, $context);
-    }
-
-    /**
-     * @inheritdoc
-     */
     public function logException($exception)
     {
-        $this->log((string)$exception, Monolog::CRITICAL);
+        $this->logger->critical($exception->getMessage(), $exception->getTrace());
     }
 
     /**
@@ -53,7 +42,7 @@ class Logger implements LoggerInterface
     public function debug($message, $context = [])
     {
         if ($this->debugMode) {
-            $this->log($message, Monolog::DEBUG, $context);
+            $this->logger->debug($message, $context);
         }
     }
 
@@ -62,7 +51,7 @@ class Logger implements LoggerInterface
      */
     public function error($message, $context = [])
     {
-        $this->log($message, Monolog::ERROR, $context);
+        $this->logger->error($message, $context);
     }
 
     /**
@@ -70,7 +59,7 @@ class Logger implements LoggerInterface
      */
     public function warn($message, $context = [])
     {
-        $this->log($message, Monolog::WARNING, $context);
+        $this->logger->warn($message, $context);
     }
 
     /**
@@ -78,6 +67,6 @@ class Logger implements LoggerInterface
      */
     public function info($message, $context = [])
     {
-        $this->log($message, Monolog::INFO, $context);
+        $this->logger->info($message, $context);
     }
 }
