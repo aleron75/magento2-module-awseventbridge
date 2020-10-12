@@ -2,8 +2,8 @@
 
 namespace Bitbull\AWSEventBridge\Model\Service;
 
-use Bitbull\AWSEventBridge\Api\Service\LoggerInterface;
-use Bitbull\AWSEventBridge\Api\Service\TrackingInterface;
+use Bitbull\AWSEventBridgeApi\Api\Service\LoggerInterface;
+use Bitbull\AWSEventBridgeApi\Api\Service\TrackingInterface;
 use Magento\Framework\App\ProductMetadataInterface;
 use Magento\Framework\Exception\LocalizedException;
 use Magento\Framework\Exception\NoSuchEntityException;

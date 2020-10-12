@@ -2,9 +2,9 @@
 
 namespace Bitbull\AWSEventBridge\Plugin\Observer;
 
-use Bitbull\AWSEventBridge\Api\ObserverInterface;
-use Bitbull\AWSEventBridge\Api\Service\ConfigInterface;
-use Bitbull\AWSEventBridge\Api\Service\LoggerInterface;
+use Bitbull\AWSEventBridgeApi\Api\ObserverInterface;
+use Bitbull\AWSEventBridgeApi\Api\Service\ConfigInterface;
+use Bitbull\AWSEventBridgeApi\Api\Service\LoggerInterface;
 
 class CheckConfigFlag
 {

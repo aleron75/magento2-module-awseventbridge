@@ -2,8 +2,8 @@
 
 namespace Bitbull\AWSEventBridge\Model\Service;
 
-use Bitbull\AWSEventBridge\Api\Service\LoggerInterface;
-use Bitbull\AWSEventBridge\Api\Service\ConfigInterface;
+use Bitbull\AWSEventBridgeApi\Api\Service\LoggerInterface;
+use Bitbull\AWSEventBridgeApi\Api\Service\ConfigInterface;
 use Magento\Framework\Logger\Monolog;
 
 class Logger implements LoggerInterface

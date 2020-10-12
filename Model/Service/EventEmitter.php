@@ -4,10 +4,10 @@ namespace Bitbull\AWSEventBridge\Model\Service;
 
 use Aws\CloudWatchEvents\CloudWatchEventsClient;
 use Aws\EventBridge\EventBridgeClient;
-use Bitbull\AWSEventBridge\Api\Service\ConfigInterface;
-use Bitbull\AWSEventBridge\Api\Service\EventEmitterInterface;
-use Bitbull\AWSEventBridge\Api\Service\LoggerInterface;
-use Bitbull\AWSEventBridge\Api\Service\TrackingInterface;
+use Bitbull\AWSEventBridgeApi\Api\Service\ConfigInterface;
+use Bitbull\AWSEventBridgeApi\Api\Service\EventEmitterInterface;
+use Bitbull\AWSEventBridgeApi\Api\Service\LoggerInterface;
+use Bitbull\AWSEventBridgeApi\Api\Service\TrackingInterface;
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Serialize\Serializer\Json as SerializerJson;
 use Magento\Framework\Stdlib\DateTime\DateTime;

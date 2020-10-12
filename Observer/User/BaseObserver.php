@@ -2,8 +2,8 @@
 
 namespace Bitbull\AWSEventBridge\Observer\User;
 
-use Bitbull\AWSEventBridge\Api\Service\ConfigInterface;
-use Bitbull\AWSEventBridge\Api\Service\LoggerInterface;
+use Bitbull\AWSEventBridgeApi\Api\Service\ConfigInterface;
+use Bitbull\AWSEventBridgeApi\Api\Service\LoggerInterface;
 use Bitbull\AWSEventBridge\Model\Service\EventEmitter;
 use Bitbull\AWSEventBridge\Observer\BaseObserver as ParentBaseObserver;
 use Magento\Backend\Model\Auth\Session as BackendUserSession;

@@ -3,10 +3,9 @@
     "description": "Magento 2 module for AWS EventBridge integration.",
     "license": "MIT",
     "authors": [
-        {
-            "name": "Fabio Gollinucci",
-            "email": "fabio.gollinucci@bitbull.it"
-        }
+        { "name": "Fabio Gollinucci", "email": "fabio.gollinucci@bitbull.it" },
+        { "name": "Andra Lungu", "email": "andra.lungu@bitbull.it" },
+        { "name": "Alessandro Ronchi", "email": "alessandro.ronchi@bitbull.it" }
     ],
     "require": {
         "php": "~7.2.0|~7.3.0|~7.4.0",
@@ -20,5 +19,6 @@
         "psr-4": {
             "Bitbull\\AWSEventBridge\\": ""
         }
-    }
+    },
+    "version": "1.0.0"
 }

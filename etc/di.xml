@@ -35,13 +35,13 @@
 
     <!-- Interfaces preference -->
 
-    <preference for="Bitbull\AWSEventBridge\Api\Service\ConfigInterface"
+    <preference for="Bitbull\AWSEventBridgeApi\Api\Service\ConfigInterface"
                 type="Bitbull\AWSEventBridge\Model\Service\Config"/>
 
-    <preference for="Bitbull\AWSEventBridge\Api\Service\LoggerInterface"
+    <preference for="Bitbull\AWSEventBridgeApi\Api\Service\LoggerInterface"
                 type="Bitbull\AWSEventBridge\Model\Service\Logger"/>
 
-    <preference for="Bitbull\AWSEventBridge\Api\Service\TrackingInterface"
+    <preference for="Bitbull\AWSEventBridgeApi\Api\Service\TrackingInterface"
                 type="Bitbull\AWSEventBridge\Model\Service\Tracking"/>
 
     <!-- Models overrides -->

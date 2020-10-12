@@ -2,7 +2,7 @@
 
 namespace Bitbull\AWSEventBridge\Model\Service;
 
-use Bitbull\AWSEventBridge\Api\Service\ConfigInterface;
+use Bitbull\AWSEventBridgeApi\Api\Service\ConfigInterface;
 use Bitbull\AWSEventBridge\Model\Adminhtml\System\Config\Source\AuthenticationTypes;
 use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Store\Model\StoreManagerInterface;
