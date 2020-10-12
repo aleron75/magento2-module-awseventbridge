@@ -9,7 +9,9 @@
     ],
     "require": {
         "php": "~7.2.0|~7.3.0|~7.4.0",
-        "aws/aws-sdk-php": "^3.110"
+        "aws/aws-sdk-php": "^3.110",
+        "bitbull/magento2-module-awseventbridge-api": "dev-master",
+        "bitbull/magento2-module-awseventbridge-admin-ui": "dev-master"
     },
     "type": "magento2-module",
     "autoload": {
