@@ -2,10 +2,10 @@
 
 namespace Bitbull\AWSEventBridge\Model\Service;
 
-use Bitbull\AWSEventBridgeApi\Api\Service\LoggerInterface;
 use Exception;
 use Magento\Framework\Bulk\OperationInterface;
 use Magento\Framework\Serialize\Serializer\Json as SerializerJson;
+use Psr\Log\LoggerInterface;
 
 class QueueConsumer
 {
@@ -58,8 +58,8 @@ class QueueConsumer
                 }
                 $this->eventEmitter->sendImmediately($payload['name'], $payload['data']);
             }
-        } catch (Exception $e) {
-            $this->logger->logException($e);
+        } catch (Exception $exception) {
+            $this->logger->critical($exception->getMessage(), $exception->getTrace());
         }
 
     }

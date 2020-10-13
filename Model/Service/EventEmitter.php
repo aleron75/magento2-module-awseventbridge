@@ -6,11 +6,11 @@ use Aws\CloudWatchEvents\CloudWatchEventsClient;
 use Aws\EventBridge\EventBridgeClient;
 use Bitbull\AWSEventBridgeApi\Api\Service\ConfigInterface;
 use Bitbull\AWSEventBridgeApi\Api\Service\EventEmitterInterface;
-use Bitbull\AWSEventBridgeApi\Api\Service\LoggerInterface;
 use Bitbull\AWSEventBridgeApi\Api\Service\TrackingInterface;
 use Magento\Framework\App\ObjectManager;
 use Magento\Framework\Serialize\Serializer\Json as SerializerJson;
 use Magento\Framework\Stdlib\DateTime\DateTime;
+use Psr\Log\LoggerInterface;
 
 class EventEmitter implements EventEmitterInterface
 {
@@ -125,7 +125,7 @@ class EventEmitter implements EventEmitterInterface
                         'credentials' => $config->getCredentials(),
                     ]);
                 } catch (\Exception $exception) {
-                    $this->logger->logException($exception);
+                    $this->logger->critical($exception->getMessage(), $exception->getTrace());
                 }
             } else {
                 try {
@@ -135,7 +135,7 @@ class EventEmitter implements EventEmitterInterface
                         'credentials' => $config->getCredentials(),
                     ]);
                 } catch (\Exception $exception) {
-                    $this->logger->logException($exception);
+                    $this->logger->critical($exception->getMessage(), $exception->getTrace());
                 }
             }
         }
@@ -186,7 +186,7 @@ class EventEmitter implements EventEmitterInterface
                 ])
             ]);
         } catch (\Exception $exception) {
-            $this->logger->logException($exception);
+            $this->logger->critical($exception->getMessage(), $exception->getTrace());
             return;
         }
         $this->logger->debug("Event '$eventName' published to topic '" . self::TOPIC_NAME . "' with data: " . print_r($eventData, true));
@@ -236,7 +236,7 @@ class EventEmitter implements EventEmitterInterface
                 ]);
             }
         } catch (\Exception $exception) {
-            $this->logger->logException($exception);
+            $this->logger->critical($exception->getMessage(), $exception->getTrace());
             return;
         }
 

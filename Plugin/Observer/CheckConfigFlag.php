@@ -4,7 +4,7 @@ namespace Bitbull\AWSEventBridge\Plugin\Observer;
 
 use Bitbull\AWSEventBridgeApi\Api\ObserverInterface;
 use Bitbull\AWSEventBridgeApi\Api\Service\ConfigInterface;
-use Bitbull\AWSEventBridgeApi\Api\Service\LoggerInterface;
+use Psr\Log\LoggerInterface;
 
 class CheckConfigFlag
 {
@@ -55,7 +55,7 @@ class CheckConfigFlag
         try {
             $result = $proceed($observer);
         } catch (\Exception $exception) {
-            $this->logger->logException($exception);
+            $this->logger->critical($exception->getMessage(), $exception->getTrace());
             return null;
         }
         $timeElapsedSecs = round(microtime(true) - $start, 3);

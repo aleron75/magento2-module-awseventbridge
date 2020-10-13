@@ -4,9 +4,9 @@ namespace Bitbull\AWSEventBridge\Observer;
 
 use Bitbull\AWSEventBridgeApi\Api\ObserverInterface;
 use Bitbull\AWSEventBridgeApi\Api\Service\ConfigInterface;
-use Bitbull\AWSEventBridgeApi\Api\Service\LoggerInterface;
 use Bitbull\AWSEventBridge\Model\Service\EventEmitter;
 use Magento\Framework\Event\Observer;
+use Psr\Log\LoggerInterface;
 use ReflectionClass;
 
 abstract class BaseObserver implements ObserverInterface
@@ -63,8 +63,8 @@ abstract class BaseObserver implements ObserverInterface
         }
         try {
             $this->reflectionClass = new ReflectionClass($this);
-        } catch (\ReflectionException $error) {
-            $this->logger->logException($error);
+        } catch (\ReflectionException $exception) {
+            $this->logger->critical($exception->getMessage(), $exception->getTrace());
             return null;
         }
         if ($this->reflectionClass->getShortName() === 'Interceptor') {

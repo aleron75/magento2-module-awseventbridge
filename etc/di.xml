@@ -2,25 +2,81 @@
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
 
-    <!-- Logging -->
+    <!-- Logger definition -->
 
-    <virtualType name="Bitbull\AWSEventBridge\Model\Virtual\LoggerHandler" type="Magento\Framework\Logger\Handler\Base">
+    <virtualType name="Bitbull\AWSEventBridge\Model\Virtual\FileLoggerHandler" type="Magento\Framework\Logger\Handler\Base">
         <arguments>
             <argument name="fileName" xsi:type="string">/var/log/aws-eventbridge.log</argument>
         </arguments>
     </virtualType>
 
-    <virtualType name="Bitbull\AWSEventBridge\Model\Virtual\Logger" type="Magento\Framework\Logger\Monolog">
+    <virtualType name="Bitbull\AWSEventBridge\Model\Virtual\FileLogger" type="Magento\Framework\Logger\Monolog">
         <arguments>
             <argument name="handlers" xsi:type="array">
-                <item name="debug" xsi:type="object">Bitbull\AWSEventBridge\Model\Virtual\LoggerHandler</item>
+                <item name="debug" xsi:type="object">Bitbull\AWSEventBridge\Model\Virtual\FileLoggerHandler</item>
             </argument>
         </arguments>
     </virtualType>
 
-    <type name="Bitbull\AWSEventBridge\Model\Service\Logger">
+    <!-- Logger setup -->
+
+    <type name="Bitbull\AWSEventBridge\Model\Service\EventEmitter">
         <arguments>
-            <argument name="logger" xsi:type="object">Bitbull\AWSEventBridge\Model\Virtual\Logger</argument>
+            <argument name="logger" xsi:type="object">Bitbull\AWSEventBridge\Model\Virtual\FileLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Bitbull\AWSEventBridge\Model\Service\EventEmitter">
+        <arguments>
+            <argument name="logger" xsi:type="object">Bitbull\AWSEventBridge\Model\Virtual\FileLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Bitbull\AWSEventBridge\Model\Service\QueueConsumer">
+        <arguments>
+            <argument name="logger" xsi:type="object">Bitbull\AWSEventBridge\Model\Virtual\FileLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Bitbull\AWSEventBridge\Model\Service\Tracking">
+        <arguments>
+            <argument name="logger" xsi:type="object">Bitbull\AWSEventBridge\Model\Virtual\FileLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Bitbull\AWSEventBridge\Observer\BaseObserver">
+        <arguments>
+            <argument name="logger" xsi:type="object">Bitbull\AWSEventBridge\Model\Virtual\FileLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Bitbull\AWSEventBridge\Observer\Customer\BaseObserver">
+        <arguments>
+            <argument name="logger" xsi:type="object">Bitbull\AWSEventBridge\Model\Virtual\FileLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Bitbull\AWSEventBridge\Observer\Customer\LoginFailed">
+        <arguments>
+            <argument name="logger" xsi:type="object">Bitbull\AWSEventBridge\Model\Virtual\FileLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Bitbull\AWSEventBridge\Observer\Customer\SignedUpFailed">
+        <arguments>
+            <argument name="logger" xsi:type="object">Bitbull\AWSEventBridge\Model\Virtual\FileLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Bitbull\AWSEventBridge\Observer\User\BaseObserver">
+        <arguments>
+            <argument name="logger" xsi:type="object">Bitbull\AWSEventBridge\Model\Virtual\FileLogger</argument>
+        </arguments>
+    </type>
+
+    <type name="Bitbull\AWSEventBridge\Plugin\Observer\CheckConfigFlag">
+        <arguments>
+            <argument name="logger" xsi:type="object">Bitbull\AWSEventBridge\Model\Virtual\FileLogger</argument>
         </arguments>
     </type>
 
@@ -43,9 +99,6 @@
 
     <preference for="Bitbull\AWSEventBridgeApi\Api\Service\ConfigInterface"
                 type="Bitbull\AWSEventBridge\Model\Service\Config"/>
-
-    <preference for="Bitbull\AWSEventBridgeApi\Api\Service\LoggerInterface"
-                type="Bitbull\AWSEventBridge\Model\Service\Logger"/>
 
     <preference for="Bitbull\AWSEventBridgeApi\Api\Service\TrackingInterface"
                 type="Bitbull\AWSEventBridge\Model\Service\Tracking"/>

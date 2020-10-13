@@ -2,7 +2,6 @@
 
 namespace Bitbull\AWSEventBridge\Model\Service;
 
-use Bitbull\AWSEventBridgeApi\Api\Service\LoggerInterface;
 use Bitbull\AWSEventBridgeApi\Api\Service\TrackingInterface;
 use Magento\Framework\App\ProductMetadataInterface;
 use Magento\Framework\Exception\LocalizedException;
@@ -14,6 +13,7 @@ use Magento\Store\Model\StoreManagerInterface;
 use Magento\Backend\Model\Auth\Session as BackendUserSession;
 use Magento\Customer\Model\Session as CustomerSession;
 use Magento\Framework\App\State as AppState;
+use \Psr\Log\LoggerInterface;
 
 class Tracking implements TrackingInterface
 {

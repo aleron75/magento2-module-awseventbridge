@@ -3,11 +3,11 @@
 namespace Bitbull\AWSEventBridge\Observer\Customer;
 
 use Bitbull\AWSEventBridgeApi\Api\Service\ConfigInterface;
-use Bitbull\AWSEventBridgeApi\Api\Service\LoggerInterface;
 use Bitbull\AWSEventBridge\Model\Service\EventEmitter;
 use Bitbull\AWSEventBridge\Observer\BaseObserver;
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Message\ManagerInterface as MessageManagerInterface;
+use Psr\Log\LoggerInterface;
 
 class LoginFailed extends BaseObserver
 {
